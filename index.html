@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tapahtumat Tampereella</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="indexi.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPZRk-zIR58zxIhb-XP52GCLCELGJ9_YM&callback=initMap"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    </head>
+    <body onLoad="window.scroll(0, 120)" style="background-color: whitesmoke;">
+        <div class="wrapper">
+
+            <div class="panel panel-default">
+                <div class="panel-body">JWT harjoitustyö</div>
+            </div>
+            <div class="jumbotron" style="text-align: center;"> 
+                <h1>Tapahtumat Tampereella</h1>
+            </div>
+            <div id="syote">
+                <div id="syotteet" >
+                    <h2> Haku tiedoilla </h2>
+                    <div class="well well-lg">
+                        <ul class="syote_rivit">
+                            <li class="lista_item">
+                                    <label>Tapahtumien tyyppi:</label>     
+                                    <input type="radio" name="optradio" value="all" checked >Kaikki 
+                                    <input type="radio" name="optradio" value="musiikki">Musiikki 
+                                    <input type="radio" name="optradio" value="urheilu">Urheilu 
+                                    <input type="radio" name="optradio" value="Lapsille">lapsille  
+                            </li>
+                            <li class="lista_item">
+                                <label for="maara">Haettavien tapahtumien maara: </label> 
+                                <input type="number" min="1" max="15" id="maara">
+                            </li>
+                            <li class="lista_item">
+                                <label for="ilmainen">Ilmainen</label>
+                                <input type="checkbox" id="ilmainen">
+                            </li>
+                            <li class="lista_item">
+                                <label >Tapahtumien kieli:</label>
+                                    <input type="radio" name="tapahtuman_kieli" value="all" checked >Kaikki
+                                    <input type="radio" name="tapahtuman_kieli" value="en">Englanti
+                                    <input type="radio" name="tapahtuman_kieli" value="fi">Suomi
+                                    <input type="radio" name="tapahtuman_kieli" value="ru">Venäjä
+                            </li>                    
+                        </ul>
+						<button class="btn btn-primary" id="tulevat1">Hae tapahtumat</button>
+                    </div>
+                </div>
+                <h2 class="mobileoff"> Haku osoitteella </h2>
+                <div id="osoite_syote" class="mobileoff">
+                    <div class="well well-lg">
+                        <label for="osoite">Osoite:    </label>
+                        <input type="text" id="osoite">
+                        <br/>
+                        <div id="huomio" class="well well-sm" style="width: 470px;"><p>
+                                <strong>Huomio:</strong> Tekstikenttään <strong>osoite</strong> tulee lisätä linkki sivulta 
+                                <a target="_blank" href ="http://visittampere.fi/api-docs/#!/default/search_get">visittampere.fi</a></p></div>
+                        <button class="btn btn-primary" id="tulevat">Hae tapahtumat</button>
+                    </div>
+                </div>
+            </div>
+            <button id="suosikit" class="btn btn-primary pagination-centered">Hae suosikkisi</button>
+            <div id="tapahtuma_div" >
+                <div id ="tapahtuma_lista">
+                    <ul class="list-group" id="tapahtumat" style = "width: 100%;">
+                    </ul>
+                </div>
+                <div>
+                    <div id="kartta" style="width: 600px;height: 500px;"></div> 
+                    <br/>
+                </div>
+                <br/>
+            </div>
+            <br/>
+            <div id="tyhjenna">
+                <label id="virhe_label" class="alert alert-danger"></label>
+                <button id="tyhjenna_tapahtumat">Edellinen </button>
+                <button id="paikanna">Etsi minut kartalta!</button>
+            </div>
+
+        </div>
+        <footer class="container-fluid bg-4 text-center">
+            <p>Johdatus www-tekniikoihin kurssin harjoitustyö <a href="http://www.uta.fi/sis/tie/jwt/">http://www.uta.fi/sis/tie/jwt/</a></p><br/>
+            <p>            <script type="text/javascript">
+                document.write("Sivua on muokattu viimeksi: " + document.lastModified);
+                </script> </p>
+				<p>
+                  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                     <img style="border:0;width:88px;height:31px"
+                     src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                      alt="Valid CSS!" />
+                  </a>
+                </p>
+        
+        </footer>
+        <script src="indexJS.js"></script>
+        <script src="script2.js">
+        </script>
+    </body>
+
+</html>
